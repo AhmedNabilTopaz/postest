@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="point_of_sale.OrderReceipt">
+        <t t-jquery=".pos-receipt .pos-receipt-contact" t-operation='replace'>
+         <div>
+                <div>--------------------------------</div>
+             <div style="text-align:center">
+                 <t t-if="receipt.company.logo">
+                <img class="pos-receipt-logo" t-att-src="receipt.company.logo" alt="Logo"/>
+                <br/>
+            </t>
+             </div>
+             <div style="text-align:center">
+                 <h2 class="pos-receipt-center-align">
+                    <t t-esc="receipt.company.name" />
+                </h2>
+             </div>
+             <div style="text-align:center">فاتورة ضريبية
+                 Invoice Tax</div>
+             <div style="text-align:center">Receipt:
+                 <t t-esc="order.name"/>
+             </div>
+             <div style="text-align:center">Date:
+                 <t t-esc="receipt.date.localestring"/>
+             </div>
+
+             <div style="text-align:center">Client:
+                 <t t-esc='receipt.client.name'/>
+             </div>
+         </div>
+        </t>
+        <t t-jquery=".pos-receipt .pos-receipt-order-data" t-operation='replace'>
+             <div>
+             </div>
+        </t>
+    </t>
+</templates>
